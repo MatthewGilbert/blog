@@ -39,5 +39,5 @@ MARKUP = ('md', 'ipynb')
 PLUGIN_PATHS = ['./plugins']
 PLUGINS = ['ipynb']
 
-THEME = './pelican-simplegrey'
+THEME = './pelican-bootstrap3'
 ARTICLE_EXCLUDES = ['.ipynb_checkpoints']
