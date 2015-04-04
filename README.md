@@ -1,2 +1,2 @@
 # MatthewGilbert
-This is the source code for the blog hosted using gh-pages found [here](https://MatthewGilbert.github.io)
+This is the source code for the blog hosted [here](https://MatthewGilbert.github.io)
