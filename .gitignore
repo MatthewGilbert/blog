@@ -1,0 +1,4 @@
+/output
+/content/.ipynb_checkpoints
+/cache
+*.pyc
