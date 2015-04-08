@@ -45,3 +45,7 @@ FILENAME_METADATA = '(?P<date>\d{4}-\d{2}-\d{2})_(?P<slug>.*)'
 DISPLAY_TAGS_ON_SIDEBAR = False
 
 DEFAULT_CATEGORY = 'finance'
+
+BOOTSTRAP_THEME = 'simplex'
+PYGMENTS_STYLE = 'autumn'
+
