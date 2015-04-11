@@ -3,4 +3,4 @@
 	url = git://github.com/danielfrg/pelican-ipynb.git
 [submodule "pelican-bootstrap3"]
 	path = pelican-bootstrap3
-	url = https://github.com/DandyDev/pelican-bootstrap3.git
+	url = https://github.com/MatthewGilbert/pelican-bootstrap3.git 
