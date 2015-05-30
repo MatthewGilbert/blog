@@ -40,7 +40,7 @@ PLUGIN_PATHS = ['./plugins']
 PLUGINS = ['ipynb']
 
 THEME = './pelican-bootstrap3'
-ARTICLE_EXCLUDES = ['.ipynb_checkpoints', 'notbuilt']
+ARTICLE_EXCLUDES = ['.ipynb_checkpoints'] 
 FILENAME_METADATA = '(?P<date>\d{4}-\d{2}-\d{2})_(?P<slug>.*)'
 DISPLAY_TAGS_ON_SIDEBAR = False
 
