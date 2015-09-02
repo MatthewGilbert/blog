@@ -7,8 +7,6 @@ AUTHOR = u'Matthew Gilbert'
 SITENAME = u'blog'
 SITEURL = ''
 
-PATH = 'content'
-
 TIMEZONE = 'America/Toronto'
 
 DEFAULT_LANG = u'en'
@@ -44,6 +42,7 @@ DEFAULT_PAGINATION = 10
 # Uncomment following line if you want document-relative URLs when developing
 #RELATIVE_URLS = True
 
+STATIC_PATHS = ['images']
 BANNER = 'images/banner.jpg'
 
 MARKUP = ('md', 'ipynb')
