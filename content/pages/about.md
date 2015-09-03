@@ -5,4 +5,4 @@ random things I have been working on, primarily related to quantitative finance
 using R and python.
 
 A very mundane personal landing page with a collection of places I can be found
-on the internet is available [here](www.matthewdgilbert.com)
+on the internet is available [here](http://www.matthewdgilbert.com)
