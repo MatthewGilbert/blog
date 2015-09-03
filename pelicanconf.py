@@ -13,7 +13,7 @@ DEFAULT_LANG = u'en'
 
 CUSTOM_CSS = 'static/custom.css'
 # Tell Pelican to add 'extra/custom.css' to the output dir
-STATIC_PATHS = ['extra/custom.css']
+STATIC_PATHS = ['images', 'extra/custom.css']
 # Tell Pelican to change the path to 'static/custom.css' in the output dir
 EXTRA_PATH_METADATA = {
             'extra/custom.css': {'path': 'static/custom.css'}
@@ -42,7 +42,6 @@ DEFAULT_PAGINATION = 10
 # Uncomment following line if you want document-relative URLs when developing
 #RELATIVE_URLS = True
 
-STATIC_PATHS = ['images']
 BANNER = 'images/banner.jpg'
 
 MARKUP = ('md', 'ipynb')
