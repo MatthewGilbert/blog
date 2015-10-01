@@ -13,10 +13,11 @@ DEFAULT_LANG = u'en'
 
 CUSTOM_CSS = 'static/custom.css'
 # Tell Pelican to add 'extra/custom.css' to the output dir
-STATIC_PATHS = ['images', 'pdfs', 'extra/custom.css']
+STATIC_PATHS = ['images', 'pdfs', 'extra/custom.css', 'extra/CNAME']
 # Tell Pelican to change the path to 'static/custom.css' in the output dir
 EXTRA_PATH_METADATA = {
-            'extra/custom.css': {'path': 'static/custom.css'}
+            'extra/custom.css': {'path': 'static/custom.css'},
+            'extra/CNAME': {'path': 'CNAME'}
 }
 
 
