@@ -4,7 +4,7 @@ from __future__ import unicode_literals
 import os
 
 AUTHOR = u'Matthew Gilbert'
-SITENAME = u'blog'
+SITENAME = u'matthewdgilbert'
 SITEURL = ''
 
 TIMEZONE = 'America/Toronto'
@@ -13,7 +13,7 @@ DEFAULT_LANG = u'en'
 
 CUSTOM_CSS = 'static/custom.css'
 # Tell Pelican to add 'extra/custom.css' to the output dir
-STATIC_PATHS = ['images', 'extra/custom.css']
+STATIC_PATHS = ['images', 'pdfs', 'extra/custom.css']
 # Tell Pelican to change the path to 'static/custom.css' in the output dir
 EXTRA_PATH_METADATA = {
             'extra/custom.css': {'path': 'static/custom.css'}

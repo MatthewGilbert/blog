@@ -1,8 +1,13 @@
 Title: About
 
 This blog is as a space to organize my thoughts and post tidbits of
-random things I have been working on, primarily related to quantitative finance
-using R and python.
+random things I have been working on, primarily related to quantitative
+finance, exploring data and using R and python.
 
-A very mundane personal landing page with a collection of places I can be found
-on the internet is available [here](http://www.matthewdgilbert.com)
+Some other places I can be found on the internet include:
+
+* [stackoverflow](http://stackoverflow.com/users/1451311/mgilbert)
+
+* [github](https://github.com/matthewgilbert)
+
+A copy of my CV can be found [here]({filename}../pdfs/MatthewGilbert.pdf)
