@@ -25,8 +25,8 @@ CLOUDFILES_CONTAINER=my_cloudfiles_container
 
 DROPBOX_DIR=~/Dropbox/Public/
 
-GITHUB_PAGES_BRANCH=gh-pages:master
-GITHUB_REPO=https://github.com/MatthewGilbert/MatthewGilbert.github.io.git
+GITHUB_PAGES_BRANCH=gh-pages:gh-pages
+GITHUB_REPO=https://github.com/MatthewGilbert/matthewdgilbert.git
 
 DEBUG ?= 0
 ifeq ($(DEBUG), 1)
