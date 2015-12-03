@@ -20,6 +20,7 @@ EXTRA_PATH_METADATA = {
             'extra/CNAME': {'path': 'CNAME'}
 }
 
+HIDE_SIDEBAR = True
 
 # Feed generation is usually not desired when developing
 FEED_ALL_ATOM = None
