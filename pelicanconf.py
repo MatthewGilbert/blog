@@ -3,6 +3,8 @@
 from __future__ import unicode_literals
 import os
 
+LOAD_CONTENT_CACHE = False
+
 AUTHOR = u'Matthew Gilbert'
 SITENAME = u'matthewdgilbert'
 SITEURL = ''
@@ -14,6 +16,10 @@ DEFAULT_LANG = u'en'
 CUSTOM_CSS = 'static/custom.css'
 # Tell Pelican to add 'extra/custom.css' to the output dir
 STATIC_PATHS = ['images', 'pdfs', 'extra/custom.css', 'extra/CNAME']
+
+ARTICLE_SAVE_AS = 'blog/{slug}/index.html'
+ARTICLE_URL = 'blog/{slug}/index.html'
+
 # Tell Pelican to change the path to 'static/custom.css' in the output dir
 EXTRA_PATH_METADATA = {
             'extra/custom.css': {'path': 'static/custom.css'},
@@ -51,13 +57,12 @@ MARKUP = ('md', 'ipynb')
 PLUGIN_PATHS = [os.path.join(os.environ.get('HOME'),
                 'Projects/pelican-plugins')]
 
-PLUGINS = ['pelican-ipynb']
+PLUGINS = ['ipynb.markup']
 
 THEME = os.path.join(os.environ.get('HOME'),
                      'Projects/pelican-bootstrap3')
 
 ARTICLE_EXCLUDES = ['.ipynb_checkpoints'] 
-FILENAME_METADATA = '(?P<date>\d{4}-\d{2}-\d{2})_(?P<slug>.*)'
 DISPLAY_CATEGORIES_ON_MENU = False
 DISPLAY_TAGS_ON_SIDEBAR = False
 
