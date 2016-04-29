@@ -17,8 +17,8 @@ CUSTOM_CSS = 'static/custom.css'
 # Tell Pelican to add 'extra/custom.css' to the output dir
 STATIC_PATHS = ['images', 'pdfs', 'extra/custom.css', 'extra/CNAME']
 
-ARTICLE_SAVE_AS = 'blog/{slug}/index.html'
-ARTICLE_URL = 'blog/{slug}/index.html'
+ARTICLE_SAVE_AS = 'blog/{slug}.html'
+ARTICLE_URL = 'blog/{slug}.html'
 
 # Tell Pelican to change the path to 'static/custom.css' in the output dir
 EXTRA_PATH_METADATA = {
