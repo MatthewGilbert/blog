@@ -1,0 +1,6 @@
+[submodule "theme"]
+	path = theme
+	url = https://github.com/matthewgilbert/pelican-bootstrap3.git
+[submodule "plugins/ipynb"]
+	path = plugins/ipynb
+	url = https://github.com/danielfrg/pelican-ipynb.git

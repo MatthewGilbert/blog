@@ -54,13 +54,11 @@ BANNER = 'images/banner.jpg'
 
 MARKUP = ('md', 'ipynb')
 
-PLUGIN_PATHS = [os.path.join(os.environ.get('HOME'),
-                'Projects/pelican-plugins')]
+PLUGIN_PATHS = ['plugins']
 
 PLUGINS = ['ipynb.markup']
 
-THEME = os.path.join(os.environ.get('HOME'),
-                     'Projects/pelican-bootstrap3')
+THEME = 'theme'
 
 ARTICLE_EXCLUDES = ['.ipynb_checkpoints'] 
 DISPLAY_CATEGORIES_ON_MENU = False
