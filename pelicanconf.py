@@ -15,10 +15,11 @@ DEFAULT_LANG = u'en'
 
 CUSTOM_CSS = 'static/custom.css'
 # Tell Pelican to add 'extra/custom.css' to the output dir
-STATIC_PATHS = ['images', 'pdfs', 'extra/custom.css', 'extra/CNAME']
+STATIC_PATHS = ['images', 'pdfs', 'extra/custom.css', 'extra/CNAME', 'blog']
 
 ARTICLE_SAVE_AS = 'blog/{slug}.html'
 ARTICLE_URL = 'blog/{slug}.html'
+ARTICLE_PATHS = ['blog']
 
 # Tell Pelican to change the path to 'static/custom.css' in the output dir
 EXTRA_PATH_METADATA = {
@@ -53,10 +54,6 @@ DEFAULT_PAGINATION = 10
 BANNER = 'images/banner.jpg'
 
 MARKUP = ('md', 'ipynb')
-
-PLUGIN_PATHS = ['plugins']
-
-PLUGINS = ['ipynb.markup']
 
 THEME = 'theme'
 
