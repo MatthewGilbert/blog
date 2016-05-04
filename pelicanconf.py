@@ -66,7 +66,7 @@ DISPLAY_TAGS_ON_SIDEBAR = False
 
 DEFAULT_CATEGORY = 'finance'
 
-BOOTSTRAP_THEME = 'simplex'
-PYGMENTS_STYLE = 'autumn'
+BOOTSTRAP_THEME = 'readable-old'
+PYGMENTS_STYLE = 'github'
 
 CUSTOM_LICENSE='The views expressed on this site are my own and do not reflect those of my employer'
