@@ -57,6 +57,8 @@ MARKUP = ('md', 'ipynb')
 
 THEME = 'theme'
 
+MD_EXTENSIONS = ['extra']
+
 ARTICLE_EXCLUDES = ['.ipynb_checkpoints'] 
 DISPLAY_CATEGORIES_ON_MENU = False
 DISPLAY_TAGS_ON_SIDEBAR = False

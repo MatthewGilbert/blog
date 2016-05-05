@@ -6,7 +6,7 @@ Summary: This is an introduction to the pitfalls of data mining in the context o
 This is an introduction to the pitfalls of data mining in the context of financial backtests
 
 
-```python
+```language-python
 %pylab inline
 ```
 
@@ -14,7 +14,7 @@ This is an introduction to the pitfalls of data mining in the context of financi
 
 
 
-```python
+```language-python
 import pandas as pd
 import pandas.io.data as web
 import scipy.optimize
@@ -32,12 +32,12 @@ to have some juice. The whole point of this exercise is to find a strategy that 
 appealing but is complete bogus, after all, if there was any juice I wouldn't be publishing this ;).
 
 
-```python
+```language-python
 xiv = web.DataReader("XIV", "yahoo")
 ```
 
 
-```python
+```language-python
 xiv.head()
 ```
 
@@ -119,18 +119,18 @@ xiv.head()
 
 
 
-```python
+```language-python
 xiv.drop(["High", "Low", "Volume", "Close"], axis=1, inplace=True)
 ```
 
 
-```python
+```language-python
 # adjust historical opens for 10:1 split on June 27, 2010
 xiv.loc[:"2011-06-24", "Open"] = xiv.loc[:"2011-06-24", "Open"] / 10
 ```
 
 
-```python
+```language-python
 xiv.plot(figsize=(12,8))
 ```
 
@@ -148,7 +148,7 @@ xiv.plot(figsize=(12,8))
 ### Calculate daily returns for different holding periods
 
 
-```python
+```language-python
 # standard close to close returns
 rets_Cl = (xiv["Adj Close"] - xiv["Adj Close"].shift(1)) / xiv["Adj Close"].shift(1)
 # returns obtained for only only holding positons for the day
@@ -160,14 +160,14 @@ rets.columns = ["Close", "Day"]
 ### Split returns into in sample and out of sample components
 
 
-```python
+```language-python
 spdate = "2014-06-01"
 rets_IS = rets[:spdate]
 rets_OS = rets[spdate:]
 ```
 
 
-```python
+```language-python
 cumsum(rets_IS).plot(figsize=(12,8))
 ```
 
@@ -188,7 +188,7 @@ Define some performance metric
 We use IR here which is a common performance metric
 
 
-```python
+```language-python
 def IR(df):
     ir = sqrt(252) * (np.mean(df) / np.std(df))
     # addresses strategies which are never invested
@@ -198,7 +198,7 @@ def IR(df):
 ```
 
 
-```python
+```language-python
 rets_IS.apply(IR)
 ```
 
@@ -216,7 +216,7 @@ of standard deviations, where standard deviation is calculated using a rolling w
 Hold the position for \`hwin number of days. The strategy is using open to close prices to make a decision at the close which has some look ahead bias however if we assume that the Close - $\epsilon$ is close enough to Close such that the signal is unchanged (which is a reasonable assumption) then in practice we could achieve this result by using some price slightly before the close. This also ignores important details like tcosts.
 
 
-```python
+```language-python
 def rev_strat(ser, std_win=30, stdevs=1.5, hwin=1):
     hwin = int(hwin)
     stds = pd.stats.moments.rolling_std(ser, std_win)
@@ -232,12 +232,12 @@ def rev_strat(ser, std_win=30, stdevs=1.5, hwin=1):
 ```
 
 
-```python
+```language-python
 sig = rev_strat(rets_IS["Day"])
 ```
 
 
-```python
+```language-python
 # signal needs to be lagged by a day to avoid look ahead bias since we are using the Open to Close which
 # overlaps with the Close to Close
 rev_rets = sig.shift(1)*rets_IS["Close"]
@@ -260,7 +260,7 @@ Even without calculating performance metrics, you probably would realize you don
 want to trade this strategy, but just for fun
 
 
-```python
+```language-python
 print(IR(rev_rets))
 ```
 
@@ -268,7 +268,7 @@ print(IR(rev_rets))
 
 
 
-```python
+```language-python
 def f(x, *params):
     std_win, stdevs, hwin = x
     ser, rets = params
@@ -277,13 +277,13 @@ def f(x, *params):
 ```
 
 
-```python
+```language-python
 rranges = (slice(2, 91, 1), slice(1, 3.25, 0.25), slice(1, 31, 1))
 params = (rets_IS["Day"], rets_IS["Close"])
 ```
 
 
-```python
+```language-python
 %timeit f((30, 1.5, 1), *params)
 ```
 
@@ -293,7 +293,7 @@ params = (rets_IS["Day"], rets_IS["Close"])
 The code below is fairly slow, on my machine it takes ~6.6 mins (89 \* 9 \* 31 \* 0.0161 / 60)
 
 
-```python
+```language-python
 grid_vals = scipy.optimize.brute(f, rranges, args=params, full_output=True)
 ```
 
@@ -301,7 +301,7 @@ Since scipy.optimize.brute minimizes a function, we have defined f as a function
 the optimal -IR for this strategy is show below
 
 
-```python
+```language-python
 grid_vals[0]
 ```
 
@@ -315,7 +315,7 @@ grid_vals[0]
 For the optimal signal, the path of cumulative returns is calculated
 
 
-```python
+```language-python
 sig_opt = rev_strat(rets_IS["Day"], grid_vals[0][0], grid_vals[0][1], grid_vals[0][2])
 # signal needs to be lagged by a day to avoid look ahead bias since we are using the Open to Close which
 # overlaps with the Close to Close
@@ -336,7 +336,7 @@ plt.title("Cumulative Return of Optimal Strategy")
 
 
 
-```python
+```language-python
 irs = grid_vals[3].copy()
 irs[irs == 100] = 0
 irs = -irs
@@ -349,7 +349,7 @@ mlab.show()
 ```
 
 
-```python
+```language-python
 Image('sensitivity.png', width=950)
 ```
 
@@ -363,7 +363,7 @@ Image('sensitivity.png', width=950)
 The idea with the graph above was to get a feel for how sensitive the IR was with respect to different parameter specifications, although admittedly this graph isn't very informative. The colorbar indicates the IR of the strategy for different parameter choices. The most sensitive choice is holding period, since there are sharp transitions across this axis. Another approach to check the stability of the model would be to perturb the optimal parameter choice (6, 1, 16) and examine the effects.
 
 
-```python
+```language-python
 stdwins = [5,6,7]
 stddevs = [0.75, 1, 1.25]
 hwins = [15, 16, 17]
@@ -397,7 +397,7 @@ Out of Sample
 Another way to determine whether a strategy performs well is to check the performance out of sample. Since we have deligently seperated our returns into two buckets, we can take the parameters chosen over the first subsample and evaluate the performance of the specified strategy on the second set of returns. As expected, the model performs terribly.
 
 
-```python
+```language-python
 sig_os = rev_strat(rets_OS["Day"], 6, 1, 16)
 rev_rets_os = sig_os.shift(1)*rets_OS["Close"]
 IR(rev_rets_os)
@@ -411,7 +411,7 @@ IR(rev_rets_os)
 
 
 
-```python
+```language-python
 cumsum(rev_rets_os).plot(figsize=(12, 8))
 ```
 
