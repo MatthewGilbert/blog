@@ -56,6 +56,8 @@ BANNER = 'images/banner.jpg'
 MARKUP = ('md', 'ipynb')
 
 THEME = 'theme'
+PLUGIN_PATHS = ['plugins/pelican-plugins']
+PLUGINS = ['render_math']
 
 MD_EXTENSIONS = ['extra']
 
